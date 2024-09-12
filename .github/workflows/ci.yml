@@ -35,5 +35,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo 'env: ${{ env.NOT_VERY_SECRET }}'
+          echo 'env: ${{ vars.NOT_VERY_SECRET }}'
           echo 'secret: ${{ secrets.SUPER_SECRET }}'
