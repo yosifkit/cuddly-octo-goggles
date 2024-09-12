@@ -20,7 +20,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment:
-      name: "really prod"
+      name: "signing"
       url: 'https://git.dag.dev/?url=https://github.com/${{ github.repository }}@${{ github.sha }}'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -29,8 +29,10 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run a "signing" env script
+        run: |
+          echo Hello, world!
+          echo 'env: ${{ vars.NOT_VERY_SECRET }}'
 
   runn:
     runs-on: ubuntu-latest
@@ -39,6 +41,7 @@ jobs:
       url: 'https://git.dag.dev/?url=https://github.com/${{ github.repository }}@${{ github.sha }}'
     
     steps:
+      - uses: actions/checkout@v4
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
