@@ -32,6 +32,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+  runn:
+    runs-on: ubuntu-latest
+    environment:
+      name: "really prod"
+      url: 'https://git.dag.dev/?url=https://github.com/${{ github.repository }}@${{ github.sha }}'
+    
+    steps:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
