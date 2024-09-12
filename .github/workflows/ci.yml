@@ -19,7 +19,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: { name: "really prod" }
+    environment:
+      name: "really prod"
+      url: 'https://git.dag.dev/?url=https://github.com/${{ github.repository }}@${{ github.sha }}'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
